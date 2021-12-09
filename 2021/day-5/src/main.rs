@@ -84,17 +84,18 @@ impl Map {
 }
 fn main() {
     let mut map = Map::new();
-    let lines = std::fs::read_to_string("input").unwrap();
+    let lines = include_str!("input");
     let mut part_1 = vec![];
     let mut part_2 = vec![];
     for line in lines.lines() {
         let point = line
             .split(|c| c == ' ' || c == '-' || c == '>')
+            .filter(|s| *s != "")
             .collect::<Vec<_>>();
-        assert_eq!(point.len(), 5);
+        assert_eq!(point.len(), 2);
 
         let start = point.get(0).unwrap();
-        let end = point.get(4).unwrap();
+        let end = point.get(1).unwrap();
         let start = start.split(',').collect::<Vec<_>>();
         assert_eq!(start.len(), 2);
         let end = end.split(',').collect::<Vec<_>>();
