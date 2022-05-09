@@ -1,2 +1,1 @@
-# aoc
-advent of code in rust
+# [AOC](https://adventofcode.com/) in rust
